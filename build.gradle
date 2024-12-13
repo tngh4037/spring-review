@@ -2,7 +2,6 @@ plugins {
 	id 'org.springframework.boot' version '3.4.0'
 	id 'io.spring.dependency-management' version '1.1.6'
 	id 'java'
-	id 'war'
 }
 
 group = 'hello'
@@ -26,19 +25,12 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-
-	// JSP 추가 시작
-	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-	implementation 'jakarta.servlet:jakarta.servlet-api' //스프링부트 3.0 이상
-	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api' //스프링부트3.0 이상
-	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl' //스프링부트 3.0 이상
-	// JSP 추가 끝
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
