@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class WebConfig {
 
-    @Bean
+    // @Bean
     public FilterRegistrationBean logFilter() {
         FilterRegistrationBean<Filter> filterFilterRegistrationBean = new FilterRegistrationBean<>();
         filterFilterRegistrationBean.setFilter(new LogFilter());
@@ -21,7 +21,7 @@ public class WebConfig {
         return filterFilterRegistrationBean;
     }
 
-    @Bean
+    //@Bean
     public FilterRegistrationBean loginCheckFilter() {
         FilterRegistrationBean<Filter> filterFilterRegistrationBean = new FilterRegistrationBean<>();
         filterFilterRegistrationBean.setFilter(new LoginCheckFilter());
