@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 // 서블릿 컨테이너가 이렇게 하도록 제공해준다.
 // 웹 서버를 커스터마이징 하는 것.
-@Component
+// @Component
 public class WebServerCustomizer
         implements WebServerFactoryCustomizer<ConfigurableWebServerFactory> {
 
