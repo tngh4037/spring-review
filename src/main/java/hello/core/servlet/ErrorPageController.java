@@ -1,10 +1,17 @@
 package hello.core.servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -27,9 +34,25 @@ public class ErrorPageController {
 
     @RequestMapping("/error-page/500")
     public String errorPage500(HttpServletRequest request, HttpServletResponse response) {
-        log.info("errorPage 404");
+        log.info("errorPage 500");
         printErrorInfo(request);
         return "error-page/500";
+    }
+
+    @RequestMapping(value = "/error-page/500", produces = MediaType.APPLICATION_JSON_VALUE)
+    // 위 @RequestMapping("/error-page/500") 보다 (더 자세하니까) 우선순위가 높다. 클라이언트의 Accept 헤더의 값이 application/json 인 경우 이게 호출된다. (나머지는 모두 위 메서드 호출)
+    public ResponseEntity<Map<String, Object>> errorPage500Api(HttpServletRequest request,
+                                                               HttpServletResponse response) {
+        log.info("API errorPage 500");
+
+        Map<String, Object> result = new HashMap<>();
+        Exception ex = (Exception) request.getAttribute(ERROR_EXCEPTION);
+        result.put("status", request.getAttribute(ERROR_STATUS_CODE));
+        result.put("message", ex.getMessage());
+
+        Integer statusCode = (Integer) request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
+
+        return new ResponseEntity<>(result, HttpStatus.valueOf(statusCode));
     }
 
     private void printErrorInfo(HttpServletRequest request) {
