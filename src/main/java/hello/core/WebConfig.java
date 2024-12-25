@@ -4,6 +4,7 @@ import hello.core.converter.IntegerToStringConverter;
 import hello.core.converter.IpPortToStringConverter;
 import hello.core.converter.StringToIntegerConverter;
 import hello.core.converter.StringToIpPortConverter;
+import hello.core.formatter.MyNumberFormatter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -15,7 +16,9 @@ public class WebConfig implements WebMvcConfigurer {
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(new StringToIpPortConverter());
         registry.addConverter(new IpPortToStringConverter());
-        registry.addConverter(new StringToIntegerConverter());
-        registry.addConverter(new IntegerToStringConverter());
+       // registry.addConverter(new StringToIntegerConverter());
+       // registry.addConverter(new IntegerToStringConverter());
+
+        // registry.addFormatter(new MyNumberFormatter());
     }
 }
