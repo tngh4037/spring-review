@@ -26,7 +26,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-	runtimeOnly 'com.h2database:h2' //h2-x.x.xxx.jar
+	runtimeOnly 'com.h2database:h2' //h2-x.x.xxx.jar ( h2 database 에 접속하기 위한 클라이언트, H2 데이터베이스 드라이버 라이브러리 )
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
