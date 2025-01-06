@@ -4,6 +4,7 @@ import hello.core.domain.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.jdbc.support.JdbcUtils;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -15,6 +16,7 @@ import java.util.NoSuchElementException;
  * - DataSourceUtils.releaseConnection();
  */
 @Slf4j
+@Component
 public class MemberRepositoryV3 {
 
     private final DataSource dataSource;
