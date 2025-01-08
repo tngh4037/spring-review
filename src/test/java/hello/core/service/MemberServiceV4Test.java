@@ -1,10 +1,7 @@
 package hello.core.service;
 
 import hello.core.domain.Member;
-import hello.core.repository.MemberRepository;
-import hello.core.repository.MemberRepositoryV3;
-import hello.core.repository.MemberRepositoryV4_1;
-import hello.core.repository.MemberRepositoryV4_2;
+import hello.core.repository.*;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
@@ -54,7 +51,8 @@ class MemberServiceV4Test {
         @Bean
         MemberRepository memberRepository() {
             // return new MemberRepositoryV4_1(dataSource);
-            return new MemberRepositoryV4_2(dataSource);
+            // return new MemberRepositoryV4_2(dataSource);
+            return new MemberRepositoryV5(dataSource);
         }
 
         @Bean
