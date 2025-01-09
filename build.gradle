@@ -25,12 +25,10 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc' // 내부적으로 HikariCP 가 포함된다.
-	runtimeOnly 'com.h2database:h2' //h2-x.x.xxx.jar ( h2 database 에 접속하기 위한 클라이언트, H2 데이터베이스 드라이버 라이브러리 )
-
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	// 테스트에서 lombok 사용
