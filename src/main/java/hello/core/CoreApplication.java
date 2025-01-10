@@ -1,9 +1,6 @@
 package hello.core;
 
-import hello.core.config.JdbcTemplateV1Config;
-import hello.core.config.JdbcTemplateV2Config;
-import hello.core.config.JdbcTemplateV3Config;
-import hello.core.config.MemoryConfig;
+import hello.core.config.*;
 import hello.core.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -20,7 +17,8 @@ import javax.sql.DataSource;
 // @Import(MemoryConfig.class)
 // @Import(JdbcTemplateV1Config.class)
 // @Import(JdbcTemplateV2Config.class)
-@Import(JdbcTemplateV3Config.class)
+// @Import(JdbcTemplateV3Config.class)
+@Import(MyBatisConfig.class)
 @SpringBootApplication(scanBasePackages = "hello.core.web")
 public class CoreApplication {
 
