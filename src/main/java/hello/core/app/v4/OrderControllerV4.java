@@ -6,6 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 템플릿 메서드 패턴
+ */
 @RestController
 @RequiredArgsConstructor
 public class OrderControllerV4 {
