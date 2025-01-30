@@ -6,6 +6,8 @@ import hello.core.config.v1_proxy.ConcreteProxyConfig;
 import hello.core.config.v1_proxy.InterfaceProxyConfig;
 import hello.core.config.v2_dynamicproxy.DynamicProxyBasicConfig;
 import hello.core.config.v2_dynamicproxy.DynamicProxyFilterConfig;
+import hello.core.config.v3_proxyfactory.ProxyFactoryConfigV1;
+import hello.core.config.v3_proxyfactory.ProxyFactoryConfigV2;
 import hello.core.trace.logtrace.LogTrace;
 import hello.core.trace.logtrace.ThreadLocalLogTrace;
 import org.springframework.boot.SpringApplication;
@@ -16,7 +18,8 @@ import org.springframework.context.annotation.Import;
 // @Import({AppV1Config.class, AppV2Config.class})
 // @Import({InterfaceProxyConfig.class, ConcreteProxyConfig.class})
 // @Import(DynamicProxyBasicConfig.class)
-@Import(DynamicProxyFilterConfig.class)
+// @Import(DynamicProxyFilterConfig.class)
+@Import({ProxyFactoryConfigV1.class, ProxyFactoryConfigV2.class})
 @SpringBootApplication(scanBasePackages = "hello.core.app.v3")
 public class CoreApplication {
 
